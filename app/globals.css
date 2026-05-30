@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-heading: "Manrope", "Plus Jakarta Sans", "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", "Open Sans", "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --primary: 221 83% 53%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 190 95% 92%;
+  --secondary-foreground: 222 47% 11%;
+  --muted: 214 32% 91%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 38 92% 50%;
+  --accent-foreground: 222 47% 11%;
+  --border: 214 32% 88%;
+  --input: 214 32% 88%;
+  --ring: 221 83% 53%;
+}
+
+.dark {
+  --background: 222 47% 7%;
+  --foreground: 210 40% 98%;
+  --card: 222 47% 10%;
+  --card-foreground: 210 40% 98%;
+  --primary: 217 91% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 217 33% 17%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 38 92% 50%;
+  --accent-foreground: 222 47% 11%;
+  --border: 217 33% 18%;
+  --input: 217 33% 18%;
+  --ring: 217 91% 60%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-body), sans-serif;
+}
+
+::selection {
+  background: rgba(251, 191, 36, 0.35);
+}
+
+.glass {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 24px 80px rgba(7, 26, 61, 0.12);
+  backdrop-filter: blur(22px);
+}
+
+.dark .glass {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.section-shell {
+  position: relative;
+  margin-inline: auto;
+  width: min(1180px, calc(100% - 2rem));
+}
+
+.premium-border {
+  position: relative;
+}
+
+.premium-border::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.32), rgba(167, 243, 255, 0.22), rgba(251, 191, 36, 0.28));
+  content: "";
+}
+
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  z-index: 60;
+  height: 24rem;
+  width: 24rem;
+  translate: -50% -50%;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.14), rgba(167, 243, 255, 0.08) 42%, transparent 70%);
+  mix-blend-mode: multiply;
+}
+
+.dark .cursor-glow {
+  mix-blend-mode: screen;
+}
+
+@media (max-width: 768px) {
+  .cursor-glow {
+    display: none;
+  }
+}
